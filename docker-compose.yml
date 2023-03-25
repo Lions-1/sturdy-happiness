@@ -1,0 +1,20 @@
+
+services:
+  db:
+    container_name: postgrespfe
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: ayman
+      PGDATA: /data/postgrespfe
+    ports:
+      - '5333:5432'
+    volumes:
+      - db:/data/postgrespfe
+    networks:
+      - db
+    restart: unless-stopped
+networks:
+  db:
+volumes:
+  db:
